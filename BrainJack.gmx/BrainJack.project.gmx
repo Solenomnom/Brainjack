@@ -9,8 +9,14 @@
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\Oui</sprite>
-    <sprite>sprites\sprite1</sprite>
+    <sprites name="Chara">
+      <sprite>sprites\Oui</sprite>
+    </sprites>
+    <sprites name="Scenery">
+      <sprite>sprites\sprite2</sprite>
+      <sprite>sprites\sprite1</sprite>
+    </sprites>
+    <sprite>sprites\Projectile</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -20,6 +26,7 @@
     <object>objects\Joueur</object>
     <object>objects\Ground</object>
     <object>objects\Wall</object>
+    <object>objects\Psycho</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\Niveau1</room>
