@@ -24,12 +24,11 @@
   <paths name="paths"/>
   <objects name="objects">
     <object>objects\Joueur</object>
-    <object>objects\Ground</object>
     <object>objects\Wall</object>
     <object>objects\Psycho</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\Niveau1</room>
+    <room>rooms\room1</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
