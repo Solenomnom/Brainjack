@@ -27,13 +27,28 @@
             <kind>1</kind>
             <string>if place_free(x,y+1) 
 { 
-gravity=1 
-gravity_direction=270 
-} 
+gravity=1;
+gravity_direction=270;
+}
 else 
 { 
-gravity=0 
-gravity_direction=0 
+gravity=0 ;
+gravity_direction=0 ;
+}
+
+if keyboard_check(vk_left) and (place_free(x-1,y))
+{
+    hspeed = -5;
+}
+
+if keyboard_check(vk_right) and (place_free(x+1,y))
+{
+    hspeed = 5;
+}
+
+if !keyboard_check(vk_left) and !keyboard_check(vk_right)
+{
+    hspeed = 0;
 }
 </string>
           </argument>
@@ -43,21 +58,30 @@ gravity_direction=0
     <event eventtype="4" ename="Wall">
       <action>
         <libid>1</libid>
-        <id>103</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_set_hspeed</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>0</kind>
-            <string>0</string>
+            <kind>1</kind>
+            <string>if (!place_meeting(x+1,y,Wall) or !place_meeting(x-1,y,Wall))
+{
+    hspeed = 0;
+}
+
+if (!place_meeting(x,y+1,Wall) or !place_meeting(x,y-1,Wall))
+{
+    vspeed = 0;
+}
+</string>
           </argument>
         </arguments>
       </action>
@@ -65,21 +89,30 @@ gravity_direction=0
     <event eventtype="4" ename="Ground">
       <action>
         <libid>1</libid>
-        <id>104</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_set_vspeed</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>0</kind>
-            <string>0</string>
+            <kind>1</kind>
+            <string>if (!place_meeting(x+1,y,Ground) or !place_meeting(x-1,y,Ground))
+{
+    hspeed = 0;
+}
+
+if (!place_meeting(x,y+1,Ground) or !place_meeting(x,y-1,Ground))
+{
+    vspeed = 0;
+}
+</string>
           </argument>
         </arguments>
       </action>
@@ -110,29 +143,6 @@ instance_create(x, y - 5, Psycho)
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="39">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>hspeed += 5;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="9" enumb="38">
       <action>
         <libid>1</libid>
@@ -154,75 +164,6 @@ instance_create(x, y - 5, Psycho)
 { 
 vspeed=-10 
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="37">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>hspeed -=5;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="10" enumb="39">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>hspeed = 0;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="10" enumb="37">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>hspeed = 0;
 </string>
           </argument>
         </arguments>
