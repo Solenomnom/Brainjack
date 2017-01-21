@@ -153,6 +153,7 @@
     <instance objName="Wall" x="704" y="288" name="inst_95D519FF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Wall" x="0" y="16" name="inst_CC53A8B3" locked="0" code="" scaleX="1" scaleY="22" colour="4294967295" rotation="0"/>
     <instance objName="Wall" x="0" y="368" name="inst_A81A4FCD" locked="0" code="" scaleX="1" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="Force" x="128" y="384" name="inst_7093795C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
